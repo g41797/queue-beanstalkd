@@ -1,0 +1,23 @@
+Valkey
+https://valkey.io/
+https://hub.docker.com/r/valkey/valkey/
+
+Redis replacement
+https://github.com/orgs/valkey-io/discussions/722
+
+PhpEnqueue\redis
+https://github.com/php-enqueue/redis/blob/master/RedisConnectionFactory.php
+
+Bitnami containers
+https://github.com/bitnami/containers/tree/main/bitnami/valkey
+https://hub.docker.com/r/bitnami/valkey
+
+Predis
+https://github.com/predis/predis
+
+PHPRedis installation
+https://github.com/phpredis/phpredis/blob/develop/INSTALL.md
+
+PhpRedis vs Predis
+https://akalongman.medium.com/phpredis-vs-predis-comparison-on-real-production-data-a819b48cbadb
+
