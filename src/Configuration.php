@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace G41797\Queue\Valkey;
+namespace G41797\Queue\Beanstalkd;
 
 final class Configuration
 {
@@ -28,21 +28,10 @@ final class Configuration
     static public function default(): array
     {
         return [
-            'scheme' => 'redis',
-            'scheme_extensions' => [],
             'host' => '127.0.0.1',
-            'port' => 6379,
-            'path' => null,
-            'database' => null,
-            'password' => null,
-            'async' => false,
-            'persistent' => false,
-            'lazy' => false,
-            'timeout' => 5.0,
-            'read_write_timeout' => null,
-            'predis_options' => null,
-            'ssl' => null,
-            'redelivery_delay' => 300,
+            'port' => 11300,
+            'timeout' => null,
+            'persisted' => false,
         ];
     }
 }

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace G41797\Queue\Valkey\Functional;
+namespace G41797\Queue\Beanstalkd\Functional;
 
-use G41797\Queue\Valkey\Broker;
+use G41797\Queue\Beanstalkd\Broker;
 
 class CleanerTest extends FunctionalTestCase
 {

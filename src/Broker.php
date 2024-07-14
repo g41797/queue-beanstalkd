@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace G41797\Queue\Valkey;
+namespace G41797\Queue\Beanstalkd;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
@@ -16,14 +16,14 @@ use Yiisoft\Queue\Message\MessageInterface;
 
 use Interop\Queue\Producer;
 
-use Enqueue\Redis\RedisContext;
-use Enqueue\Redis\RedisConsumer;
-use Enqueue\Redis\RedisConnectionFactory;
-use Enqueue\Redis\RedisDestination;
+use Enqueue\Pheanstalk\PheanstalkContext;
+use Enqueue\Pheanstalk\PheanstalkConsumer;
+use Enqueue\Pheanstalk\PheanstalkConnectionFactory;
+use Enqueue\Pheanstalk\PheanstalkDestination;
 
-use G41797\Queue\Valkey\Configuration as BrokerConfiguration;
-use G41797\Queue\Valkey\Exception\NotSupportedStatusMethodException;
-use G41797\Queue\Valkey\Exception\NotConnectedValkeyException;
+use G41797\Queue\Beanstalkd\Configuration as BrokerConfiguration;
+use G41797\Queue\Beanstalkd\Exception\NotSupportedStatusMethodException;
+use G41797\Queue\Beanstalkd\Exception\NotConnectedBeanstalkdException;
 
 
 class Broker implements BrokerInterface
@@ -74,7 +74,7 @@ class Broker implements BrokerInterface
         $this->prepare();
 
         if ($this->producer == null) {
-            $this->producer = $this->valkey->createProducer();
+            $this->producer = $this->beanstalkd->createProducer();
         }
 
         $env = $this->submit($job);
@@ -93,9 +93,9 @@ class Broker implements BrokerInterface
             $jobId      = Uuid::uuid7()->toString();
             $payload    = $this->serializer->serialize($job);
 
-            $valkeyMsg     = $this->valkey->createMessage(body: $payload, properties:['jobid' => $jobId]);
+            $beanstalkdMsg     = $this->beanstalkd->createMessage(body: $payload, properties:['jobid' => $jobId]);
 
-            $this->producer->send($this->queue, $valkeyMsg);
+            $this->producer->send($this->queue, $beanstalkdMsg);
 
             return new IdEnvelope($job, $jobId);
         }
@@ -109,7 +109,7 @@ class Broker implements BrokerInterface
         throw new NotSupportedStatusMethodException();
     }
 
-    private ?RedisConsumer $receiver = null;
+    private ?PheanstalkConsumer $receiver = null;
 
     public function pull(float $timeout): ?IdEnvelope
     {
@@ -117,19 +117,19 @@ class Broker implements BrokerInterface
 
         if ($this->receiver == null)
         {
-            $this->receiver = $this->valkey->createConsumer($this->queue);
+            $this->receiver = $this->beanstalkd->createConsumer($this->queue);
         }
 
         try
         {
-            $valkeyMsg = $this->receiver->receive((int)(ceil($timeout*1000.0)));
+            $beanstalkdMsg = $this->receiver->receive((int)(ceil($timeout*1000.0)));
 
-            if (null == $valkeyMsg) { return null;}
+            if (null == $beanstalkdMsg) { return null;}
 
-            $job    = $this->serializer->unserialize($valkeyMsg->getBody());
-            $jid    = $valkeyMsg->getProperty('jobid');
+            $job    = $this->serializer->unserialize($beanstalkdMsg->getBody());
+            $jid    = $beanstalkdMsg->getProperty('jobid');
 
-            $this->receiver->acknowledge($valkeyMsg);
+            $this->receiver->acknowledge($beanstalkdMsg);
 
             return new IdEnvelope($job, $jid);
         }
@@ -161,8 +161,8 @@ class Broker implements BrokerInterface
         return !empty($id);
     }
 
-    public ?RedisContext      $valkey    = null;
-    public RedisDestination   $queue;
+    public ?PheanstalkContext      $beanstalkd    = null;
+    public PheanstalkDestination   $queue;
 
     private function prepare(): void
     {
@@ -172,20 +172,20 @@ class Broker implements BrokerInterface
             return;
         }
         catch (\Exception $exc) {
-            throw new NotConnectedValkeyException();
+            throw new NotConnectedBeanstalkdException();
         }
     }
 
     private function init(): void
     {
-        if ($this->valkey !== null)
+        if ($this->beanstalkd !== null)
         {
             return;
         }
 
-        $valkey = (new RedisConnectionFactory($this->configuration->raw()))->createContext();
-        $this->queue = $valkey->createQueue($this->queueName);
-        $this->valkey   = $valkey;
+        $beanstalkd = (new PheanstalkConnectionFactory($this->configuration->raw()))->createContext();
+        $this->queue = $beanstalkd->createQueue($this->queueName);
+        $this->beanstalkd   = $beanstalkd;
 
         return;
     }

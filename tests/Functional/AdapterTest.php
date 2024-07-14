@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace G41797\Queue\Valkey\Functional;
+namespace G41797\Queue\Beanstalkd\Functional;
 
-use G41797\Queue\Valkey\Adapter;
-use G41797\Queue\Valkey\Configuration as BrokerConfiguration;
-use G41797\Queue\Valkey\NullLoop;
-use G41797\Queue\Valkey\Support\CheckMessageHandler;
+use G41797\Queue\Beanstalkd\Adapter;
+use G41797\Queue\Beanstalkd\Configuration as BrokerConfiguration;
+use G41797\Queue\Beanstalkd\NullLoop;
+use G41797\Queue\Beanstalkd\Support\CheckMessageHandler;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Yiisoft\Queue\Adapter\AdapterInterface;

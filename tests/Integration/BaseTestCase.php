@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace G41797\Queue\Valkey\Integration;
+namespace G41797\Queue\Beanstalkd\Integration;
 
 use Symfony\Component\Process\Process;
-use G41797\Queue\Valkey\Support\FileHelper;
-use G41797\Queue\Valkey\Functional\FunctionalTestCase;
+use G41797\Queue\Beanstalkd\Support\FileHelper;
+use G41797\Queue\Beanstalkd\Functional\FunctionalTestCase;
 
 abstract class BaseTestCase extends FunctionalTestCase
 {

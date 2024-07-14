@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace G41797\Queue\Valkey;
+namespace G41797\Queue\Beanstalkd;
 
 use Psr\Log\LoggerInterface;
 

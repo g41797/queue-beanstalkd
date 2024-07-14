@@ -1,19 +1,18 @@
 {
-    "name": "g41797/queue-valkey",
+    "name": "g41797/queue-beanstalkd",
     "type": "library",
-    "description": "Yii3 Queue Adapter for Valkey NoSQL data store",
+    "description": "Yii3 Queue Adapter for Beanstalkd NoSQL data store",
     "keywords": [
         "yii3",
         "queue",
-        "valkey"
+        "beanstalkd"
     ],
     "license": "BSD-3-Clause",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=8.2",
-        "enqueue/redis": "^0.10.19",
-        "predis/predis": "^2.1.0",
+        "enqueue/pheanstalk": "^0.10.19",
         "ramsey/uuid": "^4.7",
         "yiisoft/factory": "^1.0",
         "yiisoft/friendly-exception": "^1.0",
@@ -32,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "G41797\\Queue\\Valkey\\": "src/"
+            "G41797\\Queue\\Beanstalkd\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "G41797\\Queue\\Valkey\\": "tests/"
+            "G41797\\Queue\\Beanstalkd\\": "tests/"
         }
     },
     "extra": {

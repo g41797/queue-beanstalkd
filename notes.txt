@@ -1,23 +1,45 @@
-Valkey
-https://valkey.io/
-https://hub.docker.com/r/valkey/valkey/
+Beanstalkd
+https://beanstalkd.github.io
 
-Redis replacement
-https://github.com/orgs/valkey-io/discussions/722
+Beanstalk console
+https://github.com/ptrofimov/beanstalk_console
+https://github.com/ptrofimov/beanstalk_console/blob/master/docker-compose.yml
 
-PhpEnqueue\redis
-https://github.com/php-enqueue/redis/blob/master/RedisConnectionFactory.php
+Protocol
+https://raw.githubusercontent.com/kr/beanstalkd/master/doc/protocol.txt
 
-Bitnami containers
-https://github.com/bitnami/containers/tree/main/bitnami/valkey
-https://hub.docker.com/r/bitnami/valkey
+Go
+https://github.com/beanstalkd/go-beanstalk
 
-Predis
-https://github.com/predis/predis
+PHP
+https://github.com/pheanstalk/pheanstalk/tree/v5
+https://github.com/php-enqueue/pheanstalk
 
-PHPRedis installation
-https://github.com/phpredis/phpredis/blob/develop/INSTALL.md
+Efficient Job Queues in PHP
+https://reintech.io/blog/php-and-beanstalkd-simple-efficient-job-queues
 
-PhpRedis vs Predis
-https://akalongman.medium.com/phpredis-vs-predis-comparison-on-real-production-data-a819b48cbadb
+Utilizing Beanstalkd Work Queue
+https://copyprogramming.com/howto/how-to-install-and-use-beanstalkd-work-queue-on-a-vps
 
+BACKGROUND PROCESSING WITH BEANSTALKD
+https://www.nikolaposa.in.rs/blog/2016/11/23/self-managed-background-processing-with-beanstalkd-and-supervisor/
+
+Scalable Work Queues with Beanstalk
+https://www.igvita.com/2010/05/20/scalable-work-queues-with-beanstalk/
+
+Beanstalkd Message Queues
+https://www.todaysoftmag.com/article/791/tick-tock-on-beanstalkd-message-queues
+
+yii2-queue
+https://github.com/yiisoft/yii2-queue/tree/master/src/drivers/beanstalk
+
+Working with PHP and Beanstalkd
+https://lornajane.net/posts/2014/working-with-php-and-beanstalkd
+
+Using Beanstalkd With Go and Docker
+https://www.turtle-techies.com/using-beanstalkd-with-go-and-docker/
+
+Docker
+https://hub.docker.com/r/schickling/beanstalkd
+https://hub.docker.com/r/maateen/docker-beanstalkd
+https://hub.docker.com/r/askarlabs/beanstalkd

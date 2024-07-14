@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-export IMAGE=docker.io/bitnami/valkey:latest
-export QPORT=6379
+export IMAGE=docker.io/schickling/beanstalkd:latest
+export QPORT=11300
 
 if ! [ -f docker/docker-compose.yml ]; then
   export DOCOMPOSE=./docker-compose.yml

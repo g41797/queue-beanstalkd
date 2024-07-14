@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace G41797\Queue\Valkey\Integration;
+namespace G41797\Queue\Beanstalkd\Integration;
 
 use InvalidArgumentException;
 
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
-use G41797\Queue\Valkey\Adapter;
-use G41797\Queue\Valkey\Support\FileHelper;
-use G41797\Queue\Valkey\Support\SimpleMessageHandler;
+use G41797\Queue\Beanstalkd\Adapter;
+use G41797\Queue\Beanstalkd\Support\FileHelper;
+use G41797\Queue\Beanstalkd\Support\SimpleMessageHandler;
 
 use Yiisoft\Queue\Adapter\AdapterInterface;
 use Yiisoft\Queue\Cli\LoopInterface;

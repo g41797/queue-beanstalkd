@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace G41797\Queue\Valkey;
+namespace G41797\Queue\Beanstalkd;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
@@ -12,8 +12,8 @@ use Yiisoft\Queue\Cli\LoopInterface;
 use Yiisoft\Queue\Enum\JobStatus;
 use Yiisoft\Queue\Message\MessageInterface;
 
-use G41797\Queue\Valkey\Configuration as BrokerConfiguration;
-use G41797\Queue\Valkey\Exception\NotSupportedStatusMethodException;
+use G41797\Queue\Beanstalkd\Configuration as BrokerConfiguration;
+use G41797\Queue\Beanstalkd\Exception\NotSupportedStatusMethodException;
 
 class Adapter implements AdapterInterface
 {

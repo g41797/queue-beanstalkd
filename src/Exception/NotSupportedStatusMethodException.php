@@ -1,6 +1,6 @@
 <?php
 
-namespace G41797\Queue\Valkey\Exception;
+namespace G41797\Queue\Beanstalkd\Exception;
 
 use Yiisoft\FriendlyException\FriendlyExceptionInterface;
 
