@@ -1,7 +1,7 @@
 {
     "name": "g41797/queue-beanstalkd",
     "type": "library",
-    "description": "Yii3 Queue Adapter for Beanstalkd NoSQL data store",
+    "description": "Yii3 Queue Adapter for Beanstalkd - simple, fast work queue",
     "keywords": [
         "yii3",
         "queue",
