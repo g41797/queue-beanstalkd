@@ -1,11 +1,11 @@
-    # Yii3 Queue Adapter for Beanstalkd simple, fast work queue
+# Yii3 Queue Adapter for Beanstalkd - simple, fast work queue
 
 
 [![tests](https://github.com/g41797/queue-beanstalkd/actions/workflows/tests.yml/badge.svg)](https://github.com/g41797/queue-beanstalkd/actions/workflows/tests.yml)
 
 ## Description
 
-Yii3 Queue Adapter for [**Beanstalkd simple, fast work queue**](https://beanstalkd.github.io/) is adapter in [Yii3 Queue Adapters family.](https://github.com/yiisoft/queue/blob/master/docs/guide/en/adapter-list.md)
+Yii3 Queue Adapter for [**Beanstalkd**](https://beanstalkd.github.io/) is adapter in [Yii3 Queue Adapters family.](https://github.com/yiisoft/queue/blob/master/docs/guide/en/adapter-list.md)
 
 Implementation of adapter is based on [enqueue/pheanstalk](https://github.com/php-enqueue/pheanstalk) library.
 
